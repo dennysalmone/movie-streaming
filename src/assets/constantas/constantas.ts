@@ -1,0 +1,1 @@
+export const CUrl = 'http://localhost:3000/';

@@ -1,0 +1,128 @@
+// @import "src/assets/styles/variables"; - use it
+
+@mixin heading1() {
+    font-size: 64px/80px/-2%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
+@mixin heading2() {
+    font-size: 48px/56px/-2%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
+@mixin heading3() {
+    font-size: 32px/40px/-2%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
+@mixin heading4() {
+    font-size: 24px/32px/-1.5%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
+@mixin heading5() {
+    font-size: 20px/24px/-1.5%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
+@mixin heading6() {
+    font-size: 16px/24px/-1.5%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
+
+
+@mixin text-large() {
+    font-size: 20px/32px/0%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400px;
+}
+@mixin text-regular() {
+    font-size: 16px/24px/0%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400px;
+}
+@mixin text-small() {
+    font-size: 14px/24px/0%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400px;
+}
+@mixin text-tiny() {
+    font-size: 12px/24px/0%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400px;
+}
+@mixin text-caption() {
+    font-size: 14px/16px/0%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400px;
+}
+
+@mixin text-overline1() {
+    font-size: 14px/24px/4%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+@mixin text-overline2() {
+    font-size: 12px/16px/4%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+@mixin text-link1() {
+    font-size: 16px/24px/2%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
+@mixin text-link2() {
+    font-size: 14px/24px/2%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
+@mixin text-link3() {
+    font-size: 12px/16px/2%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
+
+$primary-light: #BEB7FB;
+$primary: #5A4AF4;
+$primary-dark: #120F31;
+
+$secondary-light: #A5DBFE;
+$secondary: #1EA5FC;
+$secondary-dark: #062032;
+
+$tertary-light: #E2C5FF;
+$tertary: #B66DFF;
+$tertary-dark: #241633;
+
+$success-light: #9BEBD3;
+$success: #05CE91;
+$success-dark: #01291D;
+
+$error-light: #FFC0C0;
+$error: #FF6161;
+$error-dark: #331313;
+
+$warning-light: #FFDEB6;
+$warning: #FFAD49;
+$warning-dark: #33230F;
+
+$black-light: #222222;
+$black: #161616;
+$black-dark: #000000;
+
+$white: #FFFFFF;
+$grey-light: #A8AEBF;
+$grey: #61697F;
+$grey-dark: #121829;
+
+$form-input-back: #101625;
+$form-overlay-back:#20283E;
+
+@mixin margin($margin) {
+    margin: $margin;
+    padding: $margin;
+    border-radius: $margin;
+}

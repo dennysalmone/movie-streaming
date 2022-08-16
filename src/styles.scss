@@ -1,1 +1,55 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@include mat.core();
+$movies-streaming-primary: mat.define-palette(mat.$indigo-palette);
+$movies-streaming-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$movies-streaming-warn: mat.define-palette(mat.$red-palette);
+$movies-streaming-theme: mat.define-light-theme((
+  color: (
+    primary: $movies-streaming-primary,
+    accent: $movies-streaming-accent,
+    warn: $movies-streaming-warn,
+  )
+));
+@include mat.all-component-themes($movies-streaming-theme);
+@import "src/assets/styles/variables";
+
+body {
+    @include text-regular();
+    color: white;
+    // background: rgb(16,44,70);
+    // background: radial-gradient(circle, rgba(16,44,70,1) 0%, rgba(18,24,41,1) 48%);
+    background: rgb(122,44,70);
+    margin: 0px;
+}
+.success-toast {
+  background-color: $success-light !important;
+  color: black !important;
+  button {
+      background-color: $success !important;
+      color: black !important;
+  };
+}
+.error-toast {
+  background-color: $error-light !important;
+  color: black !important;
+  button {
+    background-color: $error !important;
+    color: black !important;
+  };
+}
+.warning-toast {
+  background-color: $warning-light !important;
+  color: black !important;
+  button {
+    background-color: $warning !important;
+    color: black !important;
+  };
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar .mat-tab-link {
+  background-color: $primary-light !important;
+}
+.mat-tab-label{
+  color:$white;
+}
+

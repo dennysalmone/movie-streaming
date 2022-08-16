@@ -1,0 +1,55 @@
+<mat-tab-group>
+    <mat-tab label="Login">
+        <div class="overlay">
+            <form
+            class="container" 
+            [formGroup]="loginForm"
+            (ngSubmit)="onSubmitLogin()">
+                <div class="element">
+                    <label class="text-caption">Email</label>
+                    <div><input formControlName="email" class="validate" placeholder="Enter your email"></div>
+                    <span *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="helper-text-red">Please enter a valid email</span>
+                </div>
+                <div class="element">
+                    <label class="text-caption">Password</label>
+                    <div><input type="password" formControlName="password" class="validate" placeholder="Enter your password"></div>
+                    <span *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="helper-text-red">Please enter a valid password</span>
+                </div>
+                <button 
+                mat-stroked-button
+                type="submit"
+                [disabled]="loginForm.invalid || loginForm.disabled"
+              >Login</button>
+            </form>
+        </div>
+    </mat-tab>
+    <mat-tab label="Registration">
+        <div class="overlay">
+            <form
+            class="container" 
+            [formGroup]="registerForm"
+            (ngSubmit)="onSubmitRegister()">
+                <div class="element">
+                    <label class="text-caption">Email</label>
+                    <div><input formControlName="email" class="validate" placeholder="Enter your email"></div>
+                    <span *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="helper-text-red">Please enter a valid email</span>
+                </div>
+                <div class="element">
+                    <label class="text-caption">Name</label>
+                    <div><input formControlName="userName" class="validate" placeholder="Enter your name"></div>
+                    <span *ngIf="registerForm.get('userName')?.invalid && registerForm.get('userName')?.touched" class="helper-text-red">Please enter your name</span>
+                </div>
+                <div class="element">
+                    <label class="text-caption">Password</label>
+                    <div><input type="password" formControlName="password" class="validate" placeholder="Enter your password"></div>
+                    <span *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="helper-text-red">Please enter a valid password</span>
+                </div>
+                <button 
+                mat-stroked-button
+                type="submit"
+                [disabled]="registerForm.invalid || registerForm.disabled"
+              >Registration</button>
+            </form>
+        </div>
+    </mat-tab>
+</mat-tab-group>

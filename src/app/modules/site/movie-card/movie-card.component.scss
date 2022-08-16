@@ -1,0 +1,18 @@
+@import "src/assets/styles/variables";
+
+.movie-card {
+    width: 320px;
+    height: 600px;
+    border: 1px solid black;
+    @include margin(4px);
+}
+
+.img-png {
+    width: calc(100% - 16px);
+    max-height: 460px;
+    @include margin(4px);
+}
+
+.description {
+    @include text-small()
+}

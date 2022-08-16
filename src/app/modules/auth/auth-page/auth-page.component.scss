@@ -1,0 +1,45 @@
+@import "src/assets/styles/variables";
+
+.overlay {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    padding: 6px;
+    border-radius: 6px;
+    margin-top: 10px;
+    width: 500px;
+    background-color: $form-overlay-back;
+    display: flex;
+    justify-content: center;
+    flex-direction: column
+}
+
+.element {
+    @include margin(4px);
+}
+
+button {
+    @include margin(4px);
+    height: 40px;
+    width: 150px;
+}
+
+.helper-text-red {
+    font-size: 10px;
+    color: $error;
+}
+
+.text-caption {
+    @include text-caption();
+}
+
+input {
+    @include text-caption();
+    @include margin(4px);
+    width: 80%;
+    color: $white;
+    background: $form-input-back;
+}
+

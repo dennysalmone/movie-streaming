@@ -1,0 +1,36 @@
+@import "src/assets/styles/variables";
+
+.navbar {
+    background-color: $grey-dark;
+    @include text-link1();
+    height: 60px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    width: 250px;
+    div {
+        height: calc(100% - 30px);
+        padding: 15px 60px;
+    }
+}
+.links {
+    display: flex;
+    align-items: center;
+    div {
+        height: calc(100% - 30px);
+        padding: 15px 60px;
+        cursor: pointer;
+    }
+    div:hover {
+        background: $form-overlay-back;
+    }
+}
+
+.active-route {
+    background: $form-overlay-back;
+}
