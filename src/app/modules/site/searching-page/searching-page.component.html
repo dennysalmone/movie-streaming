@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="overlay">
+        <ng-container *ngFor="let movie of movies">
+            <app-movie-card [activeRoute]="routeName" [movie]="movie" class="card"></app-movie-card>
+        </ng-container>
+    </div>
+</div>
+<app-custom-button></app-custom-button>
+

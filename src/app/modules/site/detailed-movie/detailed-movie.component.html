@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="margin-overlay">
+        <div class="overlay">
+            <ng-container *ngIf="movie">
+                <div class="poster borders" [style.backgroundImage]="'url('+ url.image + movie.backdrop_path +')'" >
+                    <div class="poster-overlay borders"></div>
+                </div>
+                <div class="borders original-name">
+                    <span>{{movie.original_title}}</span>
+                </div>
+                <div class="borders details-wrapper">
+                    <div class="element borders poster-vertical">
+                        <img class="borders image" [src]="url.image + movie.poster_path">
+                    </div>
+                    <div class="element borders details">
+                        <div class="tagline">{{movie.tagline}}</div>
+                        <div class="overview issue">{{movie.overview}}</div>
+                        <span class="rate-block">
+                            <mat-icon>star_border</mat-icon>
+                            <span>{{movie.vote_average}}</span>
+                        </span>
+                        <div class="issue-data">
+                            <span class="issue">Type</span>
+                            <span class="data">Movie</span>
+                        </div>
+                        <div class="issue-data">
+                            <span class="issue">Realese Date</span>
+                            <span class="data">{{movie.release_date}}</span>
+                        </div>
+                        <div class="issue-data">
+                            <span class="issue">Runtime</span>
+                            <span class="data">{{movie.runtime | minuteToHours}}</span>
+                        </div>
+                        <div class="issue-data">
+                            <span class="issue">Genres</span>
+                            <span class="data">
+                                <ng-container *ngFor="let genre of movie.genres, index as g">
+                                    {{genre.name}}<ng-container *ngIf="movie.genres.length-1 !== g">,</ng-container>
+                                </ng-container>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

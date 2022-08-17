@@ -1,4 +1,18 @@
 <div class="movie-card">
-    <img class='img-png' src="https://upload.wikimedia.org/wikipedia/ru/a/a1/Black_Widow_logo.jpg">
-    <span class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos maxime quam doloremquequ isquamdae.</span>
+    <div class='image-block-overlay'>
+        <div [routerLink]="way + movie.id" [style.backgroundImage]="'url('+ url.image + movie.poster_path +')'" class='image-block'>
+            <div class="image-overlay">
+                <div class="rate-block">
+                    <mat-icon>star_border</mat-icon>
+                    <div>{{movie.vote_average}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="description">{{movie.name}}</div>
+    
+    <div class="add-to-list">+ Add to my list</div>
 </div>
+
+

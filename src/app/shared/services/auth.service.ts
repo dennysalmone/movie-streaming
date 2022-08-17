@@ -15,11 +15,11 @@ export class AuthService {
   }
 
   register(user: IUserRegister): Observable<any> {
-    return this.http.post<any>(`${CUrl}register`, user)
+    return this.http.post<any>(`${CUrl.auth}register`, user)
   }
 
   login(user: IUserLogin): Observable<ITokenUser> {
-    return this.http.post<ITokenUser>(`${CUrl}login`, user)
+    return this.http.post<ITokenUser>(`${CUrl.auth}login`, user)
     .pipe(
       tap(
         ({token}) => {

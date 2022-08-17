@@ -6,24 +6,30 @@
     height: 60px;
     width: 100vw;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    width: 250px;
+    width: 450px;
     div {
         height: calc(100% - 30px);
-        padding: 15px 60px;
+        padding: 15px 40px;
     }
 }
+
+.logo-png {
+    height: 90%;
+    margin: 5%;
+}
+
 .links {
     display: flex;
     align-items: center;
     div {
         height: calc(100% - 30px);
-        padding: 15px 60px;
+        padding: 15px 40px;
         cursor: pointer;
     }
     div:hover {
@@ -33,4 +39,13 @@
 
 .active-route {
     background: $form-overlay-back;
+}
+
+.overlay {
+    width: 1500px;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    @include text-link1();
+    height: 60px;
 }

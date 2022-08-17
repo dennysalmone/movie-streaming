@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="margin-overlay">
+        <div class="overlay">
+            <ng-container *ngIf="movie">
+                <div class="poster borders" [style.backgroundImage]="'url('+ url.image + movie.backdrop_path +')'" >
+                    <div class="poster-overlay borders"></div>
+                </div>
+                <div class="borders original-name">
+                    <span>{{movie.original_name}}</span>
+                </div>
+                <div class="borders details-wrapper">
+                    <div class="element borders poster-vertical">
+                        <img class="borders image" [src]="url.image + movie.poster_path">
+                    </div>
+                    <div class="element borders details">
+                        <div *ngIf="movie.tagline" class="tagline">{{movie.tagline}}</div>
+                        <div *ngIf="!movie.tagline" class="tagline">{{movie.name}}</div>
+                        <div *ngIf="movie.overview" class="overview issue">{{movie.overview}}</div>
+                        <span class="rate-block">
+                            <mat-icon>star_border</mat-icon>
+                            <span>{{movie.vote_average}}</span>
+                        </span>
+                        <div>
+                            <div class="issue-data">
+                                <span class="issue">Type</span>
+                                <span class="data">TV Shows</span>
+                            </div>
+                            <div class="issue-data">
+                                <span class="issue">Status</span>
+                                <span class="data">{{movie.status}}</span>
+                            </div>   
+                        </div>
+                        <div>
+                            <div class="issue-data">
+                                <span class="issue">First air date</span>
+                                <span class="data">{{movie.first_air_date}}</span>
+                            </div>
+                            <div class="issue-data">
+                                <span class="issue">Last air date</span>
+                                <span class="data">{{movie.last_air_date}}</span>
+                            </div>   
+                        </div>
+                        <div>
+                            <div class="issue-data">
+                                <span class="issue">No. of seasons</span>
+                                <span class="data">{{movie.number_of_seasons}}</span>
+                            </div>
+                            <div class="issue-data">
+                                <span class="issue">No. of episodes</span>
+                                <span class="data">{{movie.number_of_episodes}}</span>
+                            </div>   
+                        </div>
+                        <div>
+                            <div class="issue-data">
+                                <span class="issue">Episode run time</span>
+                                <span class="data">{{movie.episode_run_time[0] | minuteToHours}}</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="issue-data">
+                                <span class="issue">Genres</span>
+                                <span class="data">
+                                    <ng-container *ngFor="let genre of movie.genres, index as g">
+                                        {{genre.name}}<ng-container *ngIf="movie.genres.length-1 !== g">,</ng-container>
+                                    </ng-container>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './shared/services/auth.service';
+import { MoviesRequestService } from './shared/services/movies-request.service';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit (): void {
     this.auth.setTokenFromLocalStorage()
+
   }  
 
 }
