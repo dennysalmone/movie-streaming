@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { map } from 'rxjs';
-import { ICardData, IMoviesResponce, ISeriesResponce } from 'src/app/shared/interfaces/interfaces';
+import { BehaviorSubject, map, switchMap, debounceTime } from 'rxjs';
+import { ERoutes } from 'src/app/shared/emuns/enum';
+import { ICardData } from 'src/app/shared/interfaces/interfaces';
 import { MoviesRequestService } from 'src/app/shared/services/movies-request.service';
 
 @Component({
@@ -9,49 +10,70 @@ import { MoviesRequestService } from 'src/app/shared/services/movies-request.ser
   templateUrl: './searching-page.component.html',
   styleUrls: ['./searching-page.component.scss']
 })
-export class SearchingPageComponent implements OnInit {
+export class SearchingPageComponent implements OnInit, OnDestroy {
 
-  public movies: ICardData[] = [];
-  private id = 1;
+  public cards: ICardData[] = [];
+  private id: number = 1;
+  private readonly time = 400;
   public routeName: string;
+  public pageId$: BehaviorSubject<number> = new BehaviorSubject<number>(this.id);
   constructor(private moviesService: MoviesRequestService, private router: Router) { }
 
   ngOnInit(): void {
     this.checkRoute();
   }
 
+  ngOnDestroy(): void {
+    this.pageId$.complete();
+  }
+
   checkRoute() {
     this.routeName = this.router.url;
-    if(this.routeName === '/cinema/shows') {
-      this.getSeries(this.id);
+    if(this.routeName === ERoutes.Shows) {
+      this.getSeries();
     }
-    if(this.routeName === '/cinema/movies') {
-      this.getMovies(this.id);
-    }
+    if(this.routeName === ERoutes.Movies) {
+      this.getMovies();
+    } // refactoring + subj,<void>
   }
 
-  getMovies(id: number): void {
-    this.moviesService.getFilmList(id).pipe(
-      map((res: IMoviesResponce) => res.results)
+  getMovies(){
+    this.pageId$.pipe(
+      debounceTime(this.time),
+      switchMap(page => this.moviesService.getFilmList(page)),
+      map(res => res.results)
     ).subscribe(result => {
       result.forEach((el) => {
-        let movie: ICardData = this.moviesService.movieGenerator(el.id, el.poster_path, el.vote_average, el.title)
-        this.movies.push(movie)
+        let movie: ICardData = this.moviesService.cardGenerate(el.id, el.poster_path, el.vote_average, el.title);
+        this.cards.push(movie);
       })
-      console.log(this.movies)
     })
   }
 
-  getSeries(id: number): void {
-    this.moviesService.getTvSeriesList(id).pipe(
-      map((res: ISeriesResponce) => res.results)
+  getSeries(){
+    this.pageId$.pipe(
+      debounceTime(this.time),
+      switchMap(page => this.moviesService.getTvSeriesList(page)),
+      map(res => res.results)
     ).subscribe(result => {
       result.forEach((el) => {
-        let movie: ICardData = this.moviesService.movieGenerator(el.id, el.poster_path, el.vote_average, el.original_name)
-        this.movies.push(movie)
+        let movie: ICardData = this.moviesService.cardGenerate(el.id, el.poster_path, el.vote_average, el.original_name);
+        this.cards.push(movie);
       })
-      console.log(this.movies)
     })
+  }
+
+  loadNewItems(): void {
+    this.id = ++this.id
+    this.pageId$.next(this.id)
+  }
+
+  counter(num: number): any[] {
+    let arr = [];
+    for(let i=0; i<num; i++) {
+      arr.push(null)
+    }
+    return arr;
   }
 
 

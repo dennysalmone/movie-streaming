@@ -14,7 +14,8 @@ export class DetailedMovieComponent implements OnInit, OnDestroy {
 
   public id: number;
   public movie: IDetailedMovie;
-  private sub: Subscription;
+  private aSub: Subscription;
+  private bSub: Subscription;
   public url = CUrl;
   constructor(private route: ActivatedRoute, private moviesService: MoviesRequestService) { }
 
@@ -24,17 +25,18 @@ export class DetailedMovieComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.sub.unsubscribe();
+    this.aSub.unsubscribe();
+    this.bSub.unsubscribe();
   }
 
   setId(): void {
-    this.route.paramMap.pipe(
+    this.bSub = this.route.paramMap.pipe(
       switchMap(params => params.getAll('id'))
     ).subscribe(data => this.id = +data);
   }
 
   subscribeChanges(): void {
-    this.sub = this.moviesService.getMovie(this.id).subscribe((res: IDetailedMovie) => {
+    this.aSub = this.moviesService.getMovie(this.id).subscribe((res: IDetailedMovie) => {
       this.movie = res;
       console.log(this.movie)
     });

@@ -10,9 +10,10 @@ import { CUrl } from 'src/assets/constantas/constantas';
 export class MovieCardComponent implements OnInit {
   @Input() public movie: ICardData;
   @Input() public activeRoute: string;
+  @Input() public fakeCard: boolean = false;
+
   public url = CUrl;
   public way: string;
-  constructor() { }
 
   ngOnInit(): void {
     this.createRoutes();

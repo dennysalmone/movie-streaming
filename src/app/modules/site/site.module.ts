@@ -10,6 +10,10 @@ import { SearchingPageComponent } from './searching-page/searching-page.componen
 import { MinutesToHoursPipe } from 'src/app/shared/pipes/time.pipe';
 import { DetailedTvComponent } from './detailed-tv/detailed-tv.component';
 import { CustomButtonComponent } from './custom-button/custom-button.component';
+import { MatButtonModule } from '@angular/material/button';
+import { SuggestComponent } from './suggest/suggest.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { CustomInputComponent } from './custom-input/custom-input.component';
 
 @NgModule({
   declarations: [
@@ -20,12 +24,16 @@ import { CustomButtonComponent } from './custom-button/custom-button.component';
     SearchingPageComponent,
     DetailedTvComponent,
     MinutesToHoursPipe,
-    CustomButtonComponent
+    CustomButtonComponent,
+    SuggestComponent,
+    NotFoundComponent,
+    CustomInputComponent
   ],
   imports: [
     CommonModule,
     SiteRoutingModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule
   ]
 })
 export class SiteModule { }

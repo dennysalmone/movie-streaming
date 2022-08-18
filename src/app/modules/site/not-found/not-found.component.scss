@@ -1,0 +1,38 @@
+@import "src/assets/styles/variables";
+
+.overlay {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1500px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.block {
+    margin: 10%;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    div {
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        img {
+            width: 30rem;
+        }
+    }
+}
+
+.header {
+    @include heading3();
+}
+
+.message {
+    @include text-regular();
+}

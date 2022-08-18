@@ -1,0 +1,18 @@
+@import "src/assets/styles/variables";
+
+input {
+    appearance: none;
+    height: 24px;
+    width: 400px;
+    outline: none;
+    padding: 6px;
+    border-radius: 12px;
+    color: $grey-light;
+    background: $form-input-back;
+    border: 2px solid $grey-dark;
+    @include text-regular();
+}
+
+.overlay {
+    margin: 4px;
+}

@@ -1,9 +1,24 @@
 <div class="container">
     <div class="overlay">
-        <ng-container *ngFor="let movie of movies">
-            <app-movie-card [activeRoute]="routeName" [movie]="movie" class="card"></app-movie-card>
+        <ng-container *ngFor="let card of cards">
+            <app-movie-card [activeRoute]="routeName" [movie]="card" class="card"></app-movie-card>
+        </ng-container>
+        <ng-container *ngIf="!cards.length">
+            <ng-container *ngFor="let item of counter(8)">
+                <app-movie-card [activeRoute]="routeName" [fakeCard]="true" class="card"></app-movie-card>
+            </ng-container>
         </ng-container>
     </div>
 </div>
-<app-custom-button></app-custom-button>
+<div>
+
+<div *ngIf="cards.length" class="container">
+    <div class="overlay">
+        <div class="button-margin">
+            <app-custom-button (click)="loadNewItems()" buttonLabel="Load more" type="primary"></app-custom-button>
+        </div>
+    </div>
+</div>
+
+
 

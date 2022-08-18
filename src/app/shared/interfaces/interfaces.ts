@@ -55,14 +55,16 @@ export interface ICardData {
     name: string,
 }
 
-
-
 export interface IMoviesResponce {
     results: IMovie[],
 }
 
 export interface ISeriesResponce {
     results: ISeries[],
+}
+
+export interface IGeneralResponce {
+    results: (ISeries|IMovie)[],
 }
 
 export interface IDetailedSeries {

@@ -1,4 +1,12 @@
+@import "src/assets/styles/variables";
+
 button {
-    width: 150px;
-    height: 35px;
+    @include text-large();
+    background-color: $primary;
+}
+
+img {
+    height: 22px;      
+    width: 22px;
+    margin: 0px 4px;
 }

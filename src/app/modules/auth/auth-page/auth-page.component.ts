@@ -29,7 +29,7 @@ export class AuthPageComponent implements OnDestroy {
   onSubmitLogin(): void {
     this.loginForm.disable();
     this.auth.login(this.loginForm.value).pipe(takeUntil(this.destroy$)).subscribe({
-      next: () => this.router.navigate(['/cinema']),
+      next: () => this.router.navigate(['/cinema/movies']),
       error: (e) => {
         this.loginForm.enable();
         this.snackbarService.openSnackBarError(e.error.message || 'Bad internet connection', 'Ok');

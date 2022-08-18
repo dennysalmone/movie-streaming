@@ -1,18 +1,32 @@
-<div class="movie-card">
-    <div class='image-block-overlay'>
-        <div [routerLink]="way + movie.id" [style.backgroundImage]="'url('+ url.image + movie.poster_path +')'" class='image-block'>
-            <div class="image-overlay">
-                <div class="rate-block">
-                    <mat-icon>star_border</mat-icon>
-                    <div>{{movie.vote_average}}</div>
+<ng-container *ngIf="!fakeCard">
+    <div class="movie-card">
+        <div class='image-block-overlay'>
+            <div [routerLink]="way + movie.id" [style.backgroundImage]="'url('+ url.image + movie.poster_path +')'" class='image-block pointer'>
+                <div class="image-overlay">
+                    <div class="rate-block">
+                        <mat-icon>star_border</mat-icon>
+                        <div>{{movie.vote_average}}</div>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="description">{{movie.name}}</div>
+        <div class="add-to-list">+ Add to my list</div>
     </div>
+</ng-container>
 
-    <div class="description">{{movie.name}}</div>
-    
-    <div class="add-to-list">+ Add to my list</div>
-</div>
+<ng-container *ngIf="fakeCard">
+    <div class="movie-card">
+        <div class='image-block-overlay'>
+            <div class='image-block'>
+                <div class="fake-image-overlay">
+                    <div class="rate-block">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="description"></div>
+    </div>
+</ng-container>
 
 

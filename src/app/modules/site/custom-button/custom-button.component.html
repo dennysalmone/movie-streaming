@@ -1,1 +1,19 @@
-<button>Custom Button</button>
+<ng-container *ngIf="type === 'primary'">
+    <button mat-flat-button color="primary">
+        <ng-container *ngIf="logo[0]">
+            <img src="assets/png/logo-grey.png">
+        </ng-container>
+        <span>{{buttonLabel}}</span>
+        <ng-container *ngIf="logo[1]">
+            <img src="assets/png/logo-grey.png">
+        </ng-container>
+    </button>
+</ng-container>
+
+<ng-container *ngIf="type === 'secondary'">
+    <button mat-stroked-button>
+        {{buttonLabel}}
+    </button>
+</ng-container>
+
+
