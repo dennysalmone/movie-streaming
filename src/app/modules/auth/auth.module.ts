@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { AuthPageComponent } from './auth-page/auth-page.component';
 import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
 import { AuthRoutingModule } from './auth.routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AuthRoutingModule } from './auth.routing.module';
     FormsModule,
     MatToolbarModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    SharedModule
   ]
 })
 export class AuthModule { }

@@ -1,34 +1,35 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CUrl } from 'src/assets/constantas/constantas';
+import { environment } from 'src/environments/environment';
 import { IDetailedMovie, IDetailedSeries, ICardData, IMoviesResponce, ISeriesResponce, IGeneralResponce } from '../interfaces/interfaces';
+import { SharedModule } from '../shared.module';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: SharedModule
 })
 export class MoviesRequestService {
 
   constructor(private http: HttpClient) {}
 
   getFilmList(page: number): Observable<IMoviesResponce> {
-    return this.http.get<IMoviesResponce>(`${CUrl.movies}movie/popular/?${CUrl.moviesKey}&page=${page}${CUrl.otherData}`);
+    return this.http.get<IMoviesResponce>(`${environment.movies}movie/popular/?${environment.moviesKey}&page=${page}${environment.otherData}`);
   }
 
   getMovie(id: number): Observable<IDetailedMovie> {
-    return this.http.get<IDetailedMovie>(`${CUrl.movies}movie/${id}?${CUrl.moviesKey}${CUrl.otherData}`);
+    return this.http.get<IDetailedMovie>(`${environment.movies}movie/${id}?${environment.moviesKey}${environment.otherData}`);
   }
 
   getSeries(id: number): Observable<IDetailedSeries> {
-    return this.http.get<IDetailedSeries>(`${CUrl.movies}tv/${id}?${CUrl.moviesKey}${CUrl.otherData}`);
+    return this.http.get<IDetailedSeries>(`${environment.movies}tv/${id}?${environment.moviesKey}${environment.otherData}`);
   }
 
   getTvSeriesList(page: number): Observable<ISeriesResponce> {
-    return this.http.get<ISeriesResponce>(`${CUrl.movies}tv/popular/?${CUrl.moviesKey}&page=${page}${CUrl.otherData}`);
+    return this.http.get<ISeriesResponce>(`${environment.movies}tv/popular/?${environment.moviesKey}&page=${page}${environment.otherData}`);
   }
 
   searchAny(query: string): Observable<IGeneralResponce> {
-    return this.http.get<IGeneralResponce>(`${CUrl.movies}search/multi/?${CUrl.moviesKey}&query=${query}${CUrl.otherData}`);
+    return this.http.get<IGeneralResponce>(`${environment.movies}search/multi/?${environment.moviesKey}&query=${query}${environment.otherData}`);
   }
 
   cardGenerate(id: number, poster: string, vote: number, name: string): ICardData {

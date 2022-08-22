@@ -2,9 +2,10 @@ import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterStateSnapshot, UrlTree } from "@angular/router";
 import { Observable, of } from "rxjs";
 import { AuthService } from "../services/auth.service";
+import { SharedModule } from "../shared.module";
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: SharedModule
 })
 
 export class AuthGuard implements CanActivate {
@@ -15,8 +16,8 @@ export class AuthGuard implements CanActivate {
         if (this.auth.isAuthenticated()) {
             return of(true);
         } else {
-            this.auth.logout();
-            return of(true);
+            // this.auth.logout();
+            return of(false);
         }
     }
 }

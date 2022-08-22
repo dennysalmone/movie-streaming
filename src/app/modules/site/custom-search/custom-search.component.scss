@@ -1,0 +1,44 @@
+@import "src/assets/styles/variables";
+
+input {
+    appearance: none;
+    width: 100%;
+    outline: none;
+    padding: 6px;
+    border-radius: 12px;
+    color: $grey-light !important;
+    background: rgba(0, 0, 0, 0);
+    border: none !important;
+    @include text-regular();
+}
+
+.form-control:focus {
+    background-color: rgba(0, 0, 0, 0);
+    border: none !important;
+}
+
+.form-floating {
+    flex: 1;
+}
+
+.form-overlay {
+    color: $grey-light !important;
+    background: $form-input-back !important;
+    border: 1px solid $input-border;
+    width: 500px;
+    margin: 4px;
+    border-radius: 14px;
+    display: flex;
+    justify-content: space-between;
+}
+
+mat-icon {
+    width: 25px;
+    height: 25px;
+    top: calc(50% - 12.5px);
+    position: relative;
+}
+
+.search {
+    margin: 0px 8px;
+}

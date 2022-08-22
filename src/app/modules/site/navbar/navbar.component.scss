@@ -1,9 +1,11 @@
 @import "src/assets/styles/variables";
 
-.navbar {
+$height: 60px;
+
+.top-navbar {
     background-color: $grey-dark;
     @include text-link1();
-    height: 60px;
+    height: $height;
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -15,7 +17,7 @@
     align-items: center;
     width: 450px;
     div {
-        height: calc(100% - 30px);
+        height: 100%;
         padding: 15px 40px;
     }
 }
@@ -29,9 +31,11 @@
     display: flex;
     align-items: center;
     div {
-        height: calc(100% - 30px);
-        padding: 15px 40px;
+        height: 100%;
+        padding: 0px 40px;
         cursor: pointer;
+        line-height: $height;
+
     }
     div:hover {
         background: $form-overlay-back;
@@ -48,5 +52,5 @@
     display: flex;
     justify-content: space-between;
     @include text-link1();
-    height: 60px;
+    height: $height;
 }

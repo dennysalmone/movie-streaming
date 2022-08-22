@@ -1,21 +1,27 @@
-<div class="container">
+
+<div class="containerr">
+    <div class="overlay">
+        <app-custom-search [logos]="searchTypes.Left" labelInput="Search Movies"></app-custom-search>
+    </div>
+</div>
+<div class="containerr">
     <div class="overlay">
         <ng-container *ngFor="let card of cards">
-            <app-movie-card [activeRoute]="routeName" [movie]="card" class="card"></app-movie-card>
+            <app-movie-card [activeRoute]="routeName" [movie]="card" class="cards"></app-movie-card>
         </ng-container>
         <ng-container *ngIf="!cards.length">
             <ng-container *ngFor="let item of counter(8)">
-                <app-movie-card [activeRoute]="routeName" [fakeCard]="true" class="card"></app-movie-card>
+                <app-movie-card [activeRoute]="routeName" [fakeCard]="true" class="cards"></app-movie-card>
             </ng-container>
         </ng-container>
     </div>
 </div>
 <div>
 
-<div *ngIf="cards.length" class="container">
+<div *ngIf="cards.length" class="containerr">
     <div class="overlay">
         <div class="button-margin">
-            <app-custom-button (click)="loadNewItems()" buttonLabel="Load more" type="primary"></app-custom-button>
+            <app-custom-button (click)="loadNewItems()" buttonLabel="Load more" [colors]="customColors.primary" [type]='customTypes.Double'></app-custom-button>
         </div>
     </div>
 </div>

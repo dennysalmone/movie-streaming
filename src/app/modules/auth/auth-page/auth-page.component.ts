@@ -2,8 +2,8 @@ import { Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
-import { AuthService } from 'src/app/shared/services/auth.service';
-import { SnackbarService } from 'src/app/shared/services/snackbar.service';
+import { AuthService } from 'src/app/modules/shared/services/auth.service';
+import { SnackbarService } from 'src/app/modules/shared/services/snackbar.service';
 
 @Component({
   selector: 'app-auth-page',

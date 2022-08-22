@@ -1,6 +1,14 @@
-<div class="overlay">
-    <div class="left-icon icon-wrapper">
-
+<div class="row g-2">
+    <div class="col-md">
+        <div class="form-overlay">
+            <div class="logo" *ngIf="logos === 'Left' || logos === 'Double'"><mat-icon svgIcon="ic-logo"></mat-icon></div>
+            <div class="form-floating">
+                <input [formControl]="customControl" type="email" class="form-control" id="1" placeholder="text123">
+                <label for="1">{{labelInput}}</label>
+            </div>
+            <div class="logo" *ngIf="logos === 'Right' || logos === 'Double'"><mat-icon svgIcon="ic-logo"></mat-icon></div>
+        </div>
     </div>
-    <input type="text">
 </div>
+
+<!-- *ngIf='emun.left || enum.double' -->

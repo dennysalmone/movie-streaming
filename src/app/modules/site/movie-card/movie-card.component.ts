@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ICardData } from 'src/app/shared/interfaces/interfaces';
-import { CUrl } from 'src/assets/constantas/constantas';
+import { ICardData } from 'src/app/modules/shared/interfaces/interfaces';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-movie-card',
@@ -12,7 +12,7 @@ export class MovieCardComponent implements OnInit {
   @Input() public activeRoute: string;
   @Input() public fakeCard: boolean = false;
 
-  public url = CUrl;
+  public url = environment;
   public way: string;
 
   ngOnInit(): void {

@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, map, switchMap, debounceTime } from 'rxjs';
-import { ERoutes } from 'src/app/shared/emuns/enum';
-import { ICardData } from 'src/app/shared/interfaces/interfaces';
-import { MoviesRequestService } from 'src/app/shared/services/movies-request.service';
+import { BehaviorSubject, map, switchMap, debounceTime, Subject, takeUntil } from 'rxjs';
+import { ECustomColors, ECustomSearchTypes, ECustomTypes, ERoutes } from 'src/app/modules/site/enums/enum';
+import { ICardData, IMovie, IMoviesResponce } from 'src/app/modules/shared/interfaces/interfaces';
+import { MoviesRequestService } from 'src/app/modules/shared/services/movies-request.service';
 
 @Component({
   selector: 'app-searching-page',
@@ -13,68 +13,52 @@ import { MoviesRequestService } from 'src/app/shared/services/movies-request.ser
 export class SearchingPageComponent implements OnInit, OnDestroy {
 
   public cards: ICardData[] = [];
-  private id: number = 1;
-  private readonly time = 400;
   public routeName: string;
-  public pageId$: BehaviorSubject<number> = new BehaviorSubject<number>(this.id);
+  private page: number = 1;
+  private readonly time = 400;
+  private destroy$: Subject<void> = new Subject<void>();
+  private pageId$: BehaviorSubject<number> = new BehaviorSubject<number>(this.page);
+  public customTypes = ECustomTypes;
+  public searchTypes = ECustomSearchTypes;
+  public customColors = ECustomColors;
+  
   constructor(private moviesService: MoviesRequestService, private router: Router) { }
 
   ngOnInit(): void {
-    this.checkRoute();
+    this.getMovies();
+    this.routeName = this.router.url;
   }
 
   ngOnDestroy(): void {
-    this.pageId$.complete();
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
-  checkRoute() {
-    this.routeName = this.router.url;
-    if(this.routeName === ERoutes.Shows) {
-      this.getSeries();
-    }
-    if(this.routeName === ERoutes.Movies) {
-      this.getMovies();
-    } // refactoring + subj,<void>
-  }
-
-  getMovies(){
+  getMovies(): void {
     this.pageId$.pipe(
+      takeUntil(this.destroy$),
       debounceTime(this.time),
       switchMap(page => this.moviesService.getFilmList(page)),
       map(res => res.results)
     ).subscribe(result => {
-      result.forEach((el) => {
-        let movie: ICardData = this.moviesService.cardGenerate(el.id, el.poster_path, el.vote_average, el.title);
-        this.cards.push(movie);
-      })
-    })
-  }
-
-  getSeries(){
-    this.pageId$.pipe(
-      debounceTime(this.time),
-      switchMap(page => this.moviesService.getTvSeriesList(page)),
-      map(res => res.results)
-    ).subscribe(result => {
-      result.forEach((el) => {
-        let movie: ICardData = this.moviesService.cardGenerate(el.id, el.poster_path, el.vote_average, el.original_name);
+      result.forEach(el => {
+        const movie: ICardData = this.moviesService.cardGenerate(el.id, el.poster_path, el.vote_average, el.title);
         this.cards.push(movie);
       })
     })
   }
 
   loadNewItems(): void {
-    this.id = ++this.id
-    this.pageId$.next(this.id)
+    this.page = ++this.page
+    this.pageId$.next(this.page)
   }
 
-  counter(num: number): any[] {
-    let arr = [];
+  counter(num: number): null[] {
+    const arr = [];
     for(let i=0; i<num; i++) {
       arr.push(null)
     }
     return arr;
   }
-
 
 }

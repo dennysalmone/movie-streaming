@@ -16,8 +16,7 @@ $movies-streaming-theme: mat.define-light-theme((
 body {
     @include text-regular();
     color: white;
-    background: linear-gradient(93deg, rgba(16,44,70,1) 24%, rgba(18,24,41,1) 59%);
-    // background: rgb(122,44,70);
+    background: linear-gradient(90deg, rgba(16,44,70,1) 20%, rgba(18,24,41,1) 60%);
     margin: 0px;
 }
 .success-toast {
@@ -48,7 +47,16 @@ body {
 .mat-tab-group.mat-primary .mat-ink-bar .mat-tab-link {
   background-color: $primary-light !important;
 }
+
 .mat-tab-label{
   color:$white;
 }
 
+.form-control:focus {
+  border: 1px solid $input-border;
+  box-shadow: none !important;
+}
+
+img, svg {
+  vertical-align: baseline;
+}

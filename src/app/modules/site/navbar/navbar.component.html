@@ -1,11 +1,11 @@
-<div class="navbar">
+<div class="top-navbar">
   <div class="overlay">
     <div class='logo'>
       <img class='logo-png' src="assets/png/logo-color.png">
       <span>Your streaming service</span> 
     </div>
     <div class="links">
-      <div [routerLink]="['/cinema/movies']" routerLinkActive='active-route'>Movies</div>
+      <div [routerLink]="['/cinema/movies']" routerLinkActive='active-route'><span>Movies</span></div>
       <div [routerLink]="['/cinema/shows']" routerLinkActive='active-route'>TV Shows</div>
       <div [routerLink]="['/cinema/suggest']" routerLinkActive='active-route'>Suggest</div>
       <div (click)="logout()">Logout</div>

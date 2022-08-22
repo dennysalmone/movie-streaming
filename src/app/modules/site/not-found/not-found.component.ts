@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ECustomColors, ECustomTypes } from '../enums/enum';
 
 @Component({
   selector: 'app-not-found',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotFoundComponent implements OnInit {
 
+  public customTypes = ECustomTypes;
+  public customColors = ECustomColors;
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
   goHome(): void {

@@ -4,10 +4,11 @@ import { Observable } from "rxjs";
 import { tap } from "rxjs/operators";
 import { Router } from "@angular/router";
 import { ITokenUser, IUserLogin, IUserRegister } from "../interfaces/interfaces";
-import { CUrl } from "src/assets/constantas/constantas";
+import { environment } from "src/environments/environment";
+import { SharedModule } from "../shared.module";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: SharedModule
 })
 export class AuthService {
   private token: string;
@@ -15,11 +16,11 @@ export class AuthService {
   }
 
   register(user: IUserRegister): Observable<any> {
-    return this.http.post<any>(`${CUrl.auth}register`, user)
+    return this.http.post<any>(`${environment.auth}register`, user)
   }
 
   login(user: IUserLogin): Observable<ITokenUser> {
-    return this.http.post<ITokenUser>(`${CUrl.auth}login`, user)
+    return this.http.post<ITokenUser>(`${environment.auth}login`, user)
     .pipe(
       tap(
         ({token}) => {

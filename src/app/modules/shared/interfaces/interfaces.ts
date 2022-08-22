@@ -106,10 +106,6 @@ export interface IDetailedSeries {
     vote_count: number,
 }
 
-
-
-
-
 export interface IDetailedMovie {
     adult: boolean,
     backdrop_path: string,
@@ -143,6 +139,10 @@ export interface IDetailedMovie {
     vote_count: number,
 }
 
+export interface IIcons {
+    name: string,
+    file: string
+}
 
 
 

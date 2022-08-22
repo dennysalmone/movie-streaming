@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ECustomColors, ECustomTypes } from '../enums/enum';
 
 @Component({
   selector: 'app-custom-button',
@@ -6,9 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./custom-button.component.scss']
 })
 export class CustomButtonComponent implements OnInit {
-  @Input() type: "primary" | "secondary" = "primary";
+  @Input() type: ECustomTypes;
   @Input() buttonLabel: string;
-  @Input() logo: [boolean, boolean] = [false, false]
+  @Input() colors: ECustomColors = ECustomColors.primary;
   constructor() { }
 
   ngOnInit(): void {

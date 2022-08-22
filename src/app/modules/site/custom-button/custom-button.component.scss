@@ -2,11 +2,28 @@
 
 button {
     @include text-large();
-    background-color: $primary;
+    padding: 8px;
+    border-radius: 0.75rem;
+    color: white;
+    span {
+        margin: 0px 8px;
+    }
 }
 
 img {
     height: 22px;      
     width: 22px;
     margin: 0px 4px;
+}
+
+.primary {
+    background-color: $primary;
+}
+
+.secondary {
+    background-color: $secondary;
+}
+
+.tertary {
+    background-color: $tertary;
 }
