@@ -1,6 +1,6 @@
 import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { ECustomTypes } from 'src/app/modules/site/enums/enum';
+import { ECustomTypes } from 'src/app/modules/shared/enums/enum';
 
 @Component({
   selector: 'app-custom-input',
@@ -15,6 +15,10 @@ import { ECustomTypes } from 'src/app/modules/site/enums/enum';
 export class CustomInputComponent implements OnInit, ControlValueAccessor {
   @Input() labelInput: string = 'Text'
   @Input() logos: ECustomTypes;
+  @Input() iconLeft: string = 'ic-logo';
+  @Input() iconRight: string = 'ic-logo';
+  @Input() password: boolean = false;
+   
   public customControl = new FormControl();
   public onChange: Function;
   public onTouch: Function;

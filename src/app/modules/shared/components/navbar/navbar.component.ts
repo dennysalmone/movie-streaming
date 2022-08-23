@@ -8,10 +8,20 @@ import { AuthService } from 'src/app/modules/shared/services/auth.service';
 })
 export class NavbarComponent {
 
+  public toolbar: boolean = false;
+
   constructor(private auth: AuthService) { }
 
   logout(): void {
     this.auth.logout();
+  }
+
+  checkAuth(): boolean {
+    return this.auth.isAuthenticated();
+  }
+
+  toolbarToggle(): void {
+    this.toolbar = !this.toolbar
   }
 
 }

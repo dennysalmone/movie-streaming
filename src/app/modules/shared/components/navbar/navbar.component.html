@@ -1,0 +1,29 @@
+<div class="top-navbar">
+  <div class="overlay">
+    <div class='logo'>
+      <img class='logo-png' src="assets/png/logo-color.png">
+      <span>Your streaming service</span> 
+    </div>
+    <div class="links">
+      <div [routerLink]="['/cinema/movies']" routerLinkActive='active-route'><span>Movies</span></div>
+      <div [routerLink]="['/cinema/shows']" routerLinkActive='active-route'><span>TV Shows</span></div>
+      <div [routerLink]="['/cinema/suggest']" routerLinkActive='active-route'><span>Suggest</span></div>
+      <!-- <div *ngIf="checkAuth()" (click)="logout()">
+        <span><mat-icon svgIcon="ic-logout"></mat-icon></span>
+        <span>Logout</span>
+      </div> -->
+      <div *ngIf="!checkAuth()">
+        <span>Login</span>
+      </div>
+      <div (click)="toolbarToggle()">
+        <span>Menu</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-container *ngIf="toolbar">
+  <app-toolbar (closeTool)="toolbarToggle()"></app-toolbar>
+</ng-container>
+
+

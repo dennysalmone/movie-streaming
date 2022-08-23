@@ -8,7 +8,7 @@ import { environment } from "src/environments/environment";
 import { SharedModule } from "../shared.module";
 
 @Injectable({
-  providedIn: SharedModule
+  providedIn: 'root'
 })
 export class AuthService {
   private token: string;

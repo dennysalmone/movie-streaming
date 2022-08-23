@@ -1,0 +1,12 @@
+<div class="button-overlay">
+    <button [disabled]="disabled" mat-flat-button [ngClass]="colors">
+        <ng-container *ngIf="type === 'Left' || type === 'Double'">
+            <mat-icon svgIcon="ic-logo"></mat-icon>
+        </ng-container>
+        <span>{{buttonLabel}}</span>
+        <ng-container *ngIf="type === 'Right' || type === 'Double'">
+            <mat-icon svgIcon="ic-logo"></mat-icon>
+        </ng-container>
+    </button>    
+</div>
+

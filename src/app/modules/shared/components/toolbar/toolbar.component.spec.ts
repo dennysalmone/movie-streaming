@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SearchingPageComponent } from './searching-page.component';
+import { ToolbarComponent } from './toolbar.component';
 
-describe('SearchingPageComponent', () => {
-  let component: SearchingPageComponent;
-  let fixture: ComponentFixture<SearchingPageComponent>;
+describe('ToolbarComponent', () => {
+  let component: ToolbarComponent;
+  let fixture: ComponentFixture<ToolbarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SearchingPageComponent ]
+      declarations: [ ToolbarComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SearchingPageComponent);
+    fixture = TestBed.createComponent(ToolbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

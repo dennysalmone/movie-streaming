@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ECustomColors, ECustomTypes } from '../enums/enum';
+import { ECustomColors, ECustomTypes } from '../../shared/enums/enum';
 
 @Component({
   selector: 'app-not-found',

@@ -4,6 +4,7 @@ export const svgIcons: IIcons[] = [
     {name: 'ic-add', file: 'add.svg'},
     {name: 'ic-arrow-right', file: 'arrow-right.svg'},
     {name: 'ic-eye-slash', file: 'eye-slash.svg'},
+    {name: 'ic-eye', file: 'eye.svg'},
     {name: 'ic-filter', file: 'filter.svg'},
     {name: 'ic-key-square', file: 'key-square.svg'},
     {name: 'ic-like', file: 'like.svg'},

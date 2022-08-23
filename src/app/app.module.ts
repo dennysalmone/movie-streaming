@@ -9,10 +9,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './modules/shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,7 +24,8 @@ import { SharedModule } from './modules/shared/shared.module';
     MatSnackBarModule,
     MatFormFieldModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

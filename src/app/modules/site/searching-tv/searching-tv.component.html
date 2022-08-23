@@ -6,7 +6,7 @@
 <div class="containerr">
     <div class="overlay">
         <ng-container *ngFor="let card of cards">
-            <app-movie-card [activeRoute]="routeName" [movie]="card" class="cards"></app-movie-card>
+            <app-movie-card [isAuth]="isAuth()" [inFavs]="false" [activeRoute]="routeName" [movie]="card" class="cards"></app-movie-card>
         </ng-container>
         <ng-container *ngIf="!cards.length">
             <ng-container *ngFor="let item of counter(8)">

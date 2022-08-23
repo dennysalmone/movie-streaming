@@ -58,5 +58,9 @@ body {
 }
 
 img, svg {
-  vertical-align: baseline;
+  vertical-align: baseline !important;
 }
+
+.mat-tab-label{
+  @include heading4();
+} 

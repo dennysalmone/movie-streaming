@@ -6,7 +6,7 @@ import { IDetailedMovie, IDetailedSeries, ICardData, IMoviesResponce, ISeriesRes
 import { SharedModule } from '../shared.module';
 
 @Injectable({
-  providedIn: SharedModule
+  providedIn: 'root'
 })
 export class MoviesRequestService {
 
@@ -31,6 +31,16 @@ export class MoviesRequestService {
   searchAny(query: string): Observable<IGeneralResponce> {
     return this.http.get<IGeneralResponce>(`${environment.movies}search/multi/?${environment.moviesKey}&query=${query}${environment.otherData}`);
   }
+
+  searchMovies(query: string): Observable<IGeneralResponce> {
+    return this.http.get<IGeneralResponce>(`${environment.movies}search/movie/?${environment.moviesKey}&query=${query}${environment.otherData}`);
+  }
+
+  searchSeries(query: string): Observable<IGeneralResponce> {
+    return this.http.get<IGeneralResponce>(`${environment.movies}search/tv/?${environment.moviesKey}&query=${query}${environment.otherData}`);
+  }
+
+  
 
   cardGenerate(id: number, poster: string, vote: number, name: string): ICardData {
     const movie: ICardData = {

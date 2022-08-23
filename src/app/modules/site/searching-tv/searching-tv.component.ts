@@ -1,9 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, map, switchMap, debounceTime, Subject, takeUntil } from 'rxjs';
-import { ECustomColors, ECustomSearchTypes, ECustomTypes, ERoutes } from 'src/app/modules/site/enums/enum';
+import { ECustomColors, ECustomSearchTypes, ECustomTypes, ERoutes } from 'src/app/modules/shared/enums/enum';
 import { ICardData, IMovie, IMoviesResponce } from 'src/app/modules/shared/interfaces/interfaces';
 import { MoviesRequestService } from 'src/app/modules/shared/services/movies-request.service';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-searching-tv',
@@ -22,7 +23,7 @@ export class SearchingTvComponent implements OnInit, OnDestroy {
   private destroy$: Subject<void> = new Subject<void>();
   public pageId$: BehaviorSubject<number> = new BehaviorSubject<number>(this.page);
   
-  constructor(private moviesService: MoviesRequestService, private router: Router) { }
+  constructor(private moviesService: MoviesRequestService, private router: Router, private auth: AuthService) { }
 
   ngOnInit(): void {
     this.getSeries();
@@ -59,6 +60,10 @@ export class SearchingTvComponent implements OnInit, OnDestroy {
       arr.push(null)
     }
     return arr;
+  }
+
+  isAuth(): boolean {
+    return this.auth.isAuthenticated();
   }
 
 }

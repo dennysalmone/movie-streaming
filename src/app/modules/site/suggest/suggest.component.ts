@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ECustomSearchTypes, ECustomTypes } from 'src/app/modules/site/enums/enum';
+import { ECustomSearchTypes, ECustomTypes } from 'src/app/modules/shared/enums/enum';
 
 @Component({
   selector: 'app-suggest',

@@ -1,0 +1,24 @@
+<div class="toolbar-container">
+    <div class="toolbar-overlay">
+        <div (click)="close()" class="element pointer">
+            <mat-icon class="rotare-svg" svgIcon="ic-add"></mat-icon>
+            Close
+        </div>
+        <div [routerLink]="['/cinema/movies']" (click)="close()" class="element pointer">
+            <mat-icon svgIcon="ic-logo"></mat-icon>
+            Home
+        </div>
+        <div *ngIf="isAuth" class="element pointer">
+            <mat-icon svgIcon="ic-video-tick"></mat-icon>
+            Watchlist
+        </div>
+        <div *ngIf="!isAuth" class="element pointer">
+            <mat-icon svgIcon="ic-arrow-right"></mat-icon>
+            Login
+        </div>
+        <div *ngIf="isAuth" (click)="logout()" class="element pointer">
+            <mat-icon svgIcon="ic-logout"></mat-icon>
+            Log Out
+        </div>
+    </div>
+</div>

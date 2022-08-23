@@ -9,8 +9,7 @@
     padding: 6px;
     border-radius: 6px;
     margin-top: 10px;
-    width: 500px;
-    background-color: $form-overlay-back;
+    width: 520px;
     display: flex;
     justify-content: center;
     flex-direction: column
@@ -43,3 +42,18 @@ input {
     background: $form-input-back;
 }
 
+.mat-tab-labels {
+    display: flex;
+    justify-content: center;
+}
+
+.button-cont {
+    margin-top: 4px;
+    width: 500px;
+}
+
+.header {
+    margin: 60px 0px;
+    @include heading2();
+    text-align: center
+}

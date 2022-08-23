@@ -11,6 +11,8 @@ export class MovieCardComponent implements OnInit {
   @Input() public movie: ICardData;
   @Input() public activeRoute: string;
   @Input() public fakeCard: boolean = false;
+  @Input() public isAuth: boolean = false;
+  @Input() public inFavs: boolean = false;
 
   public url = environment;
   public way: string;

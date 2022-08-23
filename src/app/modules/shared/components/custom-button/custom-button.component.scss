@@ -1,16 +1,20 @@
 @import "src/assets/styles/variables";
 
-button {
-    @include text-large();
-    padding: 8px;
-    border-radius: 0.75rem;
-    color: white;
-    span {
-        margin: 0px 8px;
+.button-overlay {
+    width: 100%;
+    button {
+        @include text-large();
+        padding: 8px;
+        border-radius: 0.75rem;
+        width: 100%;
+        color: white;
+        span {
+            margin: 0px 8px;
+        }
     }
 }
 
-img {
+mat-icon {
     height: 22px;      
     width: 22px;
     margin: 0px 4px;

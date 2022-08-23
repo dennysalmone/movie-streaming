@@ -1,4 +1,42 @@
-<mat-tab-group>
+<mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Login">
+        <div class="overlay">
+            <form
+            class="container" 
+            [formGroup]="loginForm"
+            (ngSubmit)="onSubmitLogin()">
+                <app-custom-input formControlName="email" labelInput="Email" [logos]="types.Left" iconLeft="ic-sms"></app-custom-input>
+                <app-custom-input formControlName="password" [password]="true" labelInput="Password" [logos]="types.Double" iconLeft="ic-key-square" iconRight="ic-eye"></app-custom-input>
+                <div class="button-cont"><app-custom-button [disabled]="loginForm.invalid || loginForm.disabled" [type]='types.None' buttonLabel='Login'></app-custom-button></div>
+            </form>
+        </div>
+    </mat-tab>
+
+    <mat-tab label="Registration">
+        <div class="overlay">
+            <form
+            class="container" 
+            [formGroup]="registerForm"
+            (ngSubmit)="onSubmitRegister()">
+                <app-custom-input formControlName="email" labelInput="Email" [logos]="types.Left" iconLeft="ic-sms"></app-custom-input>
+                <app-custom-input formControlName="userName" labelInput="Full Name" [logos]="types.Left" iconLeft="ic-user-square"></app-custom-input>
+                <app-custom-input formControlName="password" [password]="true" labelInput="Password" [logos]="types.Double" iconLeft="ic-key-square" iconRight="ic-eye"></app-custom-input>
+                <div class="button-cont"><app-custom-button [disabled]="registerForm.invalid || registerForm.disabled" [type]='types.None' buttonLabel='Registration'></app-custom-button></div>
+            </form>
+        </div>
+    </mat-tab>
+</mat-tab-group>
+
+
+
+
+
+
+
+
+
+
+<!-- <mat-tab-group mat-align-tabs="center">
     <mat-tab label="Login">
         <div class="overlay">
             <form
@@ -52,4 +90,4 @@
             </form>
         </div>
     </mat-tab>
-</mat-tab-group>
+</mat-tab-group> -->

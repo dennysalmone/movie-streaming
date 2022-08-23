@@ -1,6 +1,6 @@
 import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { ECustomSearchTypes } from 'src/app/modules/site/enums/enum';
+import { ECustomSearchTypes } from 'src/app/modules/shared/enums/enum';
 
 @Component({
   selector: 'app-custom-search',

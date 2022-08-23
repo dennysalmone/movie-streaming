@@ -3,7 +3,7 @@ import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { SharedModule } from '../shared.module';
 
 @Injectable({
-  providedIn: SharedModule
+  providedIn: 'root'
 })
 export class SnackbarService {
 

@@ -1,16 +1,17 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, map, switchMap, debounceTime, Subject, takeUntil } from 'rxjs';
-import { ECustomColors, ECustomSearchTypes, ECustomTypes, ERoutes } from 'src/app/modules/site/enums/enum';
+import { ECustomColors, ECustomSearchTypes, ECustomTypes, ERoutes } from 'src/app/modules/shared/enums/enum';
 import { ICardData, IMovie, IMoviesResponce } from 'src/app/modules/shared/interfaces/interfaces';
 import { MoviesRequestService } from 'src/app/modules/shared/services/movies-request.service';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
-  selector: 'app-searching-page',
-  templateUrl: './searching-page.component.html',
-  styleUrls: ['./searching-page.component.scss']
+  selector: 'app-searching-movies',
+  templateUrl: './searching-movies.component.html',
+  styleUrls: ['./searching-movies.component.scss']
 })
-export class SearchingPageComponent implements OnInit, OnDestroy {
+export class SearchingMoviesComponent implements OnInit, OnDestroy {
 
   public cards: ICardData[] = [];
   public routeName: string;
@@ -22,7 +23,7 @@ export class SearchingPageComponent implements OnInit, OnDestroy {
   public searchTypes = ECustomSearchTypes;
   public customColors = ECustomColors;
   
-  constructor(private moviesService: MoviesRequestService, private router: Router) { }
+  constructor(private moviesService: MoviesRequestService, private router: Router, private auth: AuthService) { }
 
   ngOnInit(): void {
     this.getMovies();
@@ -59,6 +60,10 @@ export class SearchingPageComponent implements OnInit, OnDestroy {
       arr.push(null)
     }
     return arr;
+  }
+
+  isAuth(): boolean {
+    return this.auth.isAuthenticated();
   }
 
 }

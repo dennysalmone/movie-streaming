@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { DetailedMovieComponent } from "./detailed-movie/detailed-movie.component";
 import { DetailedTvComponent } from "./detailed-tv/detailed-tv.component";
-import { SearchingPageComponent } from "./searching-page/searching-page.component";
+import { SearchingMoviesComponent } from "./searching-page/searching-movies.component";
 import { SearchingTvComponent } from "./searching-tv/searching-tv.component";
 import { SuggestComponent } from "./suggest/suggest.component";
 import { SiteLayoutComponent } from "./site-layout/site-layout.component";
@@ -12,7 +12,7 @@ const routes: Routes = [
   {
       path: "", component: SiteLayoutComponent, 
       children: [
-          { path: "movies", component: SearchingPageComponent },
+          { path: "movies", component: SearchingMoviesComponent },
           { path: "shows", component: SearchingTvComponent },
           { path: "suggest", component: SuggestComponent },
           { path: "movie/:id", component: DetailedMovieComponent },

@@ -142,6 +142,10 @@ $secondary-dark-opacity: #062032b0;
 $ligth-opacity: rgba(5, 8, 25, 0.25);
 $middle-opacity: rgba(5, 8, 25, 0.5);
 
+@mixin image-back($deg) {
+    background: linear-gradient($deg, rgba(18,24,41,0.75) 15%, rgba(18,24,41,0.01) 85%);
+}
+
 @mixin blur() {
     backdrop-filter: blur(4px);
 }

@@ -1,0 +1,29 @@
+@import "src/assets/styles/variables";
+
+.overlay {
+    display: flex;
+    justify-content: center;
+    width: 1500px;
+    .over-el {
+        width: 100%;
+        margin: 10px;
+        padding: 10px;
+    }
+}
+
+.containerr {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.img-block {
+    display: flex;
+    justify-content: center;
+}
+
+.back-for-img {
+    width: 400px;
+    border-radius: 24px;
+    @include image-back(180deg);
+}

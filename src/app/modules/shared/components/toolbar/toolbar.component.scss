@@ -1,0 +1,41 @@
+@import "src/assets/styles/variables";
+
+.toolbar-container {
+    width: 250px;
+    border-radius: 12px;
+    background: $form-input-back;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    position: absolute;
+    right: 10px;
+    z-index: 1;
+
+}
+
+.toolbar-overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.element {
+    display: flex;
+    padding: 10px;
+    mat-icon {
+        margin-right: 10px;
+    }
+}
+
+.element:hover {
+    background: $form-overlay-back;
+    border-radius: 10px;
+}
+
+.rotare-svg {
+    transform: rotate(45deg);
+}
+
+.pointer {
+    cursor: pointer;
+}
