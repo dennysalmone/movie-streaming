@@ -7,12 +7,8 @@
     <div class="links">
       <div [routerLink]="['/cinema/movies']" routerLinkActive='active-route'><span>Movies</span></div>
       <div [routerLink]="['/cinema/shows']" routerLinkActive='active-route'><span>TV Shows</span></div>
-      <div [routerLink]="['/cinema/suggest']" routerLinkActive='active-route'><span>Suggest</span></div>
-      <!-- <div *ngIf="checkAuth()" (click)="logout()">
-        <span><mat-icon svgIcon="ic-logout"></mat-icon></span>
-        <span>Logout</span>
-      </div> -->
-      <div *ngIf="!checkAuth()">
+      <div [routerLink]="['/cinema/pinned']" routerLinkActive='active-route'><span>Pinned</span></div>
+      <div [routerLink]="['/auth']" *ngIf="!checkAuth()">
         <span>Login</span>
       </div>
       <div (click)="toolbarToggle()">

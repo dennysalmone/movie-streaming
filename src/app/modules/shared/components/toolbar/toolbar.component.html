@@ -8,11 +8,11 @@
             <mat-icon svgIcon="ic-logo"></mat-icon>
             Home
         </div>
-        <div *ngIf="isAuth" class="element pointer">
+        <div *ngIf="isAuth" (click)="close()" class="element pointer">
             <mat-icon svgIcon="ic-video-tick"></mat-icon>
             Watchlist
         </div>
-        <div *ngIf="!isAuth" class="element pointer">
+        <div *ngIf="!isAuth" (click)="close()" [routerLink]="['/auth']" class="element pointer">
             <mat-icon svgIcon="ic-arrow-right"></mat-icon>
             Login
         </div>

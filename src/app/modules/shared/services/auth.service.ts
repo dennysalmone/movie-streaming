@@ -16,15 +16,16 @@ export class AuthService {
   }
 
   register(user: IUserRegister): Observable<any> {
-    return this.http.post<any>(`${environment.auth}register`, user)
+    return this.http.post<any>(`${environment.mongo}register`, user)
   }
 
   login(user: IUserLogin): Observable<ITokenUser> {
-    return this.http.post<ITokenUser>(`${environment.auth}login`, user)
+    return this.http.post<ITokenUser>(`${environment.mongo}login`, user)
     .pipe(
       tap(
-        ({token}) => {
+        ({token, user}) => {
           localStorage.setItem('authToken', token);
+          console.log(user.favourite) // закинуть в ngrx
           this.setToken(token);
           this.setTokenFromLocalStorage();
         }

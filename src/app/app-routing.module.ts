@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'cinema',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     loadChildren: () => import('src/app/modules/site/site.module').then(m => m.SiteModule)
   },
   {

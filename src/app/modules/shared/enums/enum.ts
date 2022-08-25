@@ -22,4 +22,8 @@ export enum ECustomColors {
     tertary = 'tertary',
 }
 
+export enum EVideoType {
+    movie = 'movie',
+    series = 'series',
+}
 

@@ -8,7 +8,7 @@ import { IconsService } from './modules/shared/services/icons.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'movies-streaming';
+
   constructor(private auth: AuthService, private iconService: IconsService){}
 
   ngOnInit (): void {

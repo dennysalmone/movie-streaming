@@ -14,10 +14,10 @@
             <div class="description">{{movie.name}}</div>
             <ng-container *ngIf="isAuth">
                 <ng-container *ngIf="!inFavs">
-                    <div class="add-to-list primary"><mat-icon svgIcon="ic-add"></mat-icon>Add to my list</div>
+                    <div (click)="pinMovie()" class="add-to-list pointer primary"><mat-icon svgIcon="ic-add"></mat-icon>Add to my list</div>
                 </ng-container>
-                <ng-container *ngIf="!inFavs">
-                    <div class="add-to-list green"><mat-icon svgIcon="ic-video-tick"></mat-icon>Already watched</div>
+                <ng-container *ngIf="inFavs">
+                    <div (click)="removeMovie()" class="add-to-list pointer green"><mat-icon svgIcon="ic-video-tick"></mat-icon>Already watched</div>
                 </ng-container>
             </ng-container>
         </div>

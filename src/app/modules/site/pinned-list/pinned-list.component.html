@@ -1,0 +1,7 @@
+<div class="containerr">
+    <div class="overlay">
+        <ng-container *ngFor="let card of cards">
+            <app-movie-card [isAuth]="isAuth()" [inFavs]="true" [movie]="card" class="cards"></app-movie-card>
+        </ng-container>
+    </div>
+</div>

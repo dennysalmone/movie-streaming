@@ -7,7 +7,6 @@ import { DetailedMovieComponent } from './detailed-movie/detailed-movie.componen
 import { SearchingMoviesComponent } from './searching-page/searching-movies.component';
 import { DetailedTvComponent } from './detailed-tv/detailed-tv.component';
 import { MatButtonModule } from '@angular/material/button';
-import { SuggestComponent } from './suggest/suggest.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SearchingTvComponent } from './searching-tv/searching-tv.component';
 import { SharedModule } from '../shared/shared.module';
@@ -15,6 +14,7 @@ import { MinutesToHoursPipe } from '../shared/pipes/time.pipe';
 import { SiteLayoutComponent } from './site-layout/site-layout.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RouterModule } from '@angular/router';
+import { PinnedListComponent } from './pinned-list/pinned-list.component';
 
 
 @NgModule({
@@ -24,10 +24,10 @@ import { RouterModule } from '@angular/router';
     DetailedMovieComponent,
     SearchingMoviesComponent,
     DetailedTvComponent,
-    SuggestComponent,
     SearchingTvComponent,
     SiteLayoutComponent,
     NotFoundComponent,
+    PinnedListComponent
   ],
   imports: [
     CommonModule,

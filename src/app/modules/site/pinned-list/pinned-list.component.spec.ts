@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SuggestComponent } from './suggest.component';
+import { PinnedListComponent } from './pinned-list.component';
 
-describe('SuggestComponent', () => {
-  let component: SuggestComponent;
-  let fixture: ComponentFixture<SuggestComponent>;
+describe('PinnedListComponent', () => {
+  let component: PinnedListComponent;
+  let fixture: ComponentFixture<PinnedListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SuggestComponent ]
+      declarations: [ PinnedListComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SuggestComponent);
+    fixture = TestBed.createComponent(PinnedListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

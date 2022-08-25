@@ -3,7 +3,7 @@
 .toolbar-container {
     width: 250px;
     border-radius: 12px;
-    background: $form-input-back;
+    background: $toolbar-back;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     position: absolute;
     right: 10px;
@@ -28,7 +28,7 @@
 }
 
 .element:hover {
-    background: $form-overlay-back;
+    background: $toolbar-overlay-back;
     border-radius: 10px;
 }
 

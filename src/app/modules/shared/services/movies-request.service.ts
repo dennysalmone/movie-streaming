@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
+import { IMoviesValues } from 'src/app/store/movies/movies.interfaces';
 import { environment } from 'src/environments/environment';
+import { EVideoType } from '../enums/enum';
 import { IDetailedMovie, IDetailedSeries, ICardData, IMoviesResponce, ISeriesResponce, IGeneralResponce } from '../interfaces/interfaces';
 import { SharedModule } from '../shared.module';
 
@@ -40,16 +42,23 @@ export class MoviesRequestService {
     return this.http.get<IGeneralResponce>(`${environment.movies}search/tv/?${environment.moviesKey}&query=${query}${environment.otherData}`);
   }
 
-  
-
-  cardGenerate(id: number, poster: string, vote: number, name: string): ICardData {
+  cardGenerate(id: number, poster: string, vote: number, name: string, genre: EVideoType): ICardData {
     const movie: ICardData = {
       id: id,
       poster_path: poster,
       vote_average: vote,
       name: name,
+      videoType: genre
     }
     return movie;
+  }
+
+  changeFavoriteList(data: IMoviesValues): Observable<any> {
+    return this.http.post<IMoviesValues>(`${environment.mongo}favs`, data)
+  }
+
+  getFavoriteList(): Observable<IMoviesValues> {
+    return this.http.get<IMoviesValues>(`${environment.mongo}get-favs`)
   }
 
 }

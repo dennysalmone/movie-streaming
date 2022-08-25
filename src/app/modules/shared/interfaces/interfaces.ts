@@ -1,3 +1,5 @@
+import { EVideoType } from "../enums/enum"
+
 export interface IUserLogin {
     email: string,
     password: string
@@ -11,6 +13,7 @@ export interface IUserRegister {
 
 export interface ITokenUser {
     token: string
+    user: any
 } 
 
 export interface IMovie {
@@ -53,6 +56,7 @@ export interface ICardData {
     poster_path: string,
     vote_average: number,
     name: string,
+    videoType: EVideoType
 }
 
 export interface IMoviesResponce {

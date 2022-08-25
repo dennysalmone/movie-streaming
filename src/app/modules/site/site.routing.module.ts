@@ -4,9 +4,9 @@ import { DetailedMovieComponent } from "./detailed-movie/detailed-movie.componen
 import { DetailedTvComponent } from "./detailed-tv/detailed-tv.component";
 import { SearchingMoviesComponent } from "./searching-page/searching-movies.component";
 import { SearchingTvComponent } from "./searching-tv/searching-tv.component";
-import { SuggestComponent } from "./suggest/suggest.component";
 import { SiteLayoutComponent } from "./site-layout/site-layout.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
+import { PinnedListComponent } from "./pinned-list/pinned-list.component";
 
 const routes: Routes = [
   {
@@ -14,7 +14,7 @@ const routes: Routes = [
       children: [
           { path: "movies", component: SearchingMoviesComponent },
           { path: "shows", component: SearchingTvComponent },
-          { path: "suggest", component: SuggestComponent },
+          { path: "pinned", component: PinnedListComponent },
           { path: "movie/:id", component: DetailedMovieComponent },
           { path: "tv/:id", component: DetailedTvComponent },
           { path: "not-found", component: NotFoundComponent },
