@@ -3,7 +3,7 @@
         <div class="form-overlay">
             <div class="logo" *ngIf="logos === 'Left' || logos === 'Double'"><mat-icon [svgIcon]="iconLeft"></mat-icon></div>
             <div class="form-floating">
-                <input [attr.type]="password ? 'password' : null" [formControl]="customControl" type="email" class="form-control" id="1" placeholder="text123">
+                <input [attr.type]="password ? 'password' : null" [formControl]="customControl" type="text" class="form-control" id="1" placeholder="text123">
                 <label for="1">{{labelInput}}</label>
             </div>
             <div class="logo" *ngIf="logos === 'Right' || logos === 'Double'"><mat-icon [svgIcon]="iconRight"></mat-icon></div>

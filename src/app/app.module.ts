@@ -17,7 +17,7 @@ import { environment } from 'src/environments/environment';
 import { AppEffects } from './app.effects';
 import { reducers, metaReducers } from './store';
 import { TokenInterceptor } from './modules/shared/interceptor/interceptor';
-
+ 
 @NgModule({
   declarations: [
     AppComponent,

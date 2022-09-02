@@ -7,7 +7,7 @@
     <div class="links">
       <div [routerLink]="['/cinema/movies']" routerLinkActive='active-route'><span>Movies</span></div>
       <div [routerLink]="['/cinema/shows']" routerLinkActive='active-route'><span>TV Shows</span></div>
-      <div [routerLink]="['/cinema/pinned']" routerLinkActive='active-route'><span>Pinned</span></div>
+      <div [routerLink]="['/cinema/pinned']" *ngIf="checkAuth()" routerLinkActive='active-route'><span>Pinned</span></div>
       <div [routerLink]="['/auth']" *ngIf="!checkAuth()">
         <span>Login</span>
       </div>

@@ -13,7 +13,6 @@ export interface IUserRegister {
 
 export interface ITokenUser {
     token: string
-    user: any
 } 
 
 export interface IMovie {
@@ -91,8 +90,8 @@ export interface IDetailedSeries {
     name: string,
     networks: any[],
     next_episode_to_air: null,
-    number_of_episodes: 34,
-    number_of_seasons: 4,
+    number_of_episodes: number,
+    number_of_seasons: number,
     origin_country: string[],
     original_language: string,
     original_name: string,

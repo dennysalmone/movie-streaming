@@ -8,7 +8,7 @@
             <mat-icon svgIcon="ic-logo"></mat-icon>
             Home
         </div>
-        <div *ngIf="isAuth" (click)="close()" class="element pointer">
+        <div *ngIf="isAuth" (click)="close()" [routerLink]="['/cinema/pinned']" class="element pointer">
             <mat-icon svgIcon="ic-video-tick"></mat-icon>
             Watchlist
         </div>

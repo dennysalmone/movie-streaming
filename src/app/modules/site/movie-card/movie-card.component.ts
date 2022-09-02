@@ -27,11 +27,16 @@ export class MovieCardComponent implements OnInit {
   }
 
   createRoutes(): void {
-    if(this.movie && this.movie.videoType === EVideoType.series) {
-      this.way = '/cinema/tv/'
-    }
-    if(this.movie && this.movie.videoType === EVideoType.movie) {
-      this.way = '/cinema/movie/'
+    if(!this.movie) {return}
+    switch(this.movie.videoType) {
+      case (EVideoType.series): {
+        this.way = '/cinema/tv/';
+        break;
+      }
+      case (EVideoType.movie): {
+        this.way = '/cinema/movie/';
+        break;
+      }
     }
   }
 

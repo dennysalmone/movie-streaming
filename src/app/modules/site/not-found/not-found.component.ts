@@ -6,18 +6,9 @@ import { ECustomColors, ECustomTypes } from '../../shared/enums/enum';
   templateUrl: './not-found.component.html',
   styleUrls: ['./not-found.component.scss']
 })
-export class NotFoundComponent implements OnInit {
+export class NotFoundComponent {
 
   public customTypes = ECustomTypes;
   public customColors = ECustomColors;
-  constructor() { }
-
-  ngOnInit(): void {
-    
-  }
-
-  goHome(): void {
-    alert(123)
-  }
 
 }

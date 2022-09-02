@@ -11,3 +11,4 @@ export interface IMoviesValues {
         card: ICardData
     }
 }
+ 

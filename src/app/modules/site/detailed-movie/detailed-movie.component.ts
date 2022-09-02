@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription, switchMap } from 'rxjs';
+import { Subject, switchMap, takeUntil } from 'rxjs';
 import { IDetailedMovie } from 'src/app/modules/shared/interfaces/interfaces';
 import { MoviesRequestService } from 'src/app/modules/shared/services/movies-request.service';
 import { environment } from 'src/environments/environment';
@@ -14,9 +14,9 @@ export class DetailedMovieComponent implements OnInit, OnDestroy {
 
   public id: number;
   public movie: IDetailedMovie;
-  private aSub: Subscription;
-  private bSub: Subscription;
+  private destroy$: Subject<void> = new Subject<void>();
   public url = environment;
+  
   constructor(private route: ActivatedRoute, private moviesService: MoviesRequestService) { }
 
   ngOnInit(): void {
@@ -25,18 +25,22 @@ export class DetailedMovieComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.aSub.unsubscribe();
-    this.bSub.unsubscribe();
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   setId(): void {
-    this.bSub = this.route.paramMap.pipe(
-      switchMap(params => params.getAll('id'))
+    this.route.paramMap.pipe(
+      switchMap(params => params.getAll('id')),
+      takeUntil(this.destroy$)
     ).subscribe(data => this.id = +data);
   }
 
   subscribeChanges(): void {
-    this.aSub = this.moviesService.getMovie(this.id).subscribe((res: IDetailedMovie) => {
+    this.moviesService.getMovie(this.id)
+    .pipe(
+      takeUntil(this.destroy$),
+    ).subscribe((res: IDetailedMovie) => {
       this.movie = res;
       console.log(this.movie)
     });

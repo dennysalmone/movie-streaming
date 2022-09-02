@@ -7,6 +7,7 @@ import { SearchingTvComponent } from "./searching-tv/searching-tv.component";
 import { SiteLayoutComponent } from "./site-layout/site-layout.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
 import { PinnedListComponent } from "./pinned-list/pinned-list.component";
+import { AuthGuard } from "../shared/guards/auth-guard";
 
 const routes: Routes = [
   {
@@ -14,7 +15,7 @@ const routes: Routes = [
       children: [
           { path: "movies", component: SearchingMoviesComponent },
           { path: "shows", component: SearchingTvComponent },
-          { path: "pinned", component: PinnedListComponent },
+          { path: "pinned", component: PinnedListComponent, canActivate: [AuthGuard] },
           { path: "movie/:id", component: DetailedMovieComponent },
           { path: "tv/:id", component: DetailedTvComponent },
           { path: "not-found", component: NotFoundComponent },

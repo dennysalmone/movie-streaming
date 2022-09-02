@@ -79,3 +79,4 @@ export class SearchingMoviesComponent implements OnInit, OnDestroy {
   }
 
 }
+ 
